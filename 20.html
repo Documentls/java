@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            // Function to increment the visitor count
+function incrementVisitorCount() {
+    // Check if the 'visitorCount' key exists in local storage
+    if (localStorage.getItem('visitorCount')) {
+      // If it exists, retrieve the current count and increment it
+      var count = parseInt(localStorage.getItem('visitorCount'));
+      count++;
+      localStorage.setItem('visitorCount', count);
+    } else {
+      // If it doesn't exist, set the count to 1
+      localStorage.setItem('visitorCount', 1);
+    }
+  }
+  
+  // Function to display the visitor count at the bottom of the homepage
+  function displayVisitorCount() {
+    // Check if the 'visitorCount' key exists in local storage
+    if (localStorage.getItem('visitorCount')) {
+      // Retrieve the visitor count from local storage
+      var count = parseInt(localStorage.getItem('visitorCount'));
+  
+      // Create a paragraph element to display the visitor count
+      var countElement = document.createElement('p');
+      countElement.textContent = 'Number of visitors: ' + count;
+  
+      // Append the count element to the bottom of the homepage
+      var bodyElement = document.getElementsByTagName('body')[0];
+      bodyElement.appendChild(countElement);
+    }
+  }
+  
+  // Call the incrementVisitorCount function to increment the count
+  incrementVisitorCount();
+  
+  // Call the displayVisitorCount function to display the count on the homepage
+  displayVisitorCount();
+        </script>
+    </body>
+
+</html>

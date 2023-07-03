@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+           function validateEmail(email) {
+                // Regular expression pattern for email validation
+                var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+              
+                // Check if the email matches the pattern
+                if (pattern.test(email)) {
+                  return true; // Email is valid
+                } else {
+                  return false; // Email is invalid
+                }
+              }
+              
+              // Example usage
+              var email = prompt("Enter an email address:");
+              var isValid = validateEmail(email);
+              
+              if (isValid) {
+                console.log("Email address is valid.");
+              } else {
+                console.log("Email address is invalid.");
+              }
+        </script>
+    </body>
+</html>

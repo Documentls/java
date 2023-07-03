@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function bookFlight() {
+                return new Promise((resolve, reject) => {
+                // simulate booking a flight after a delay of 2 seconds
+                setTimeout(() => {
+                // randomly resolve or reject the promise
+                Math.random() >= 0.5 ? resolve("Flight booked") : reject("Failed to book flight");
+                }, 2000);
+                });
+               }
+               function bookHotel() {
+                return new Promise((resolve, reject) => {
+                // simulate booking a hotel after a delay of 3 seconds
+                setTimeout(() => {
+                resolve("Hotel booked");
+                }, 3000);
+                });
+               }
+               function bookTrip(destination) {
+                console.log(`Booking a trip to ${destination}...`);
+                bookFlight()
+                .then((result) => {
+                console.log(result);
+                return bookHotel();
+                })
+                .then((result) => {
+                console.log(result);
+                })
+                .catch((error) => {
+                console.log(error);
+                });
+               }
+               bookTrip("Paris"); 
+
+        </script>
+    </body>
+</html>

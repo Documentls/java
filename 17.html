@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            // Function to check if a blood composition is a subsequence of the virus composition
+function checkInfection(virusComposition, bloodComposition) {
+    var virusIndex = 0;
+    
+    // Loop through each character in the blood composition
+    for (var i = 0; i < bloodComposition.length; i++) {
+      // Check if the current character matches the next character in the virus composition
+      if (bloodComposition[i] === virusComposition[virusIndex]) {
+        virusIndex++;
+      }
+      
+      // Check if all characters of the virus composition have been matched
+      if (virusIndex === virusComposition.length) {
+        return "POSITIVE";
+      }
+    }
+    
+    return "NEGATIVE";
+  }
+  
+  // Example usage
+  var virusComposition = "coronavirus";
+  var bloodCompositions = ["ravus", "covirus", "novir", "ruscoronav", "oronavirusc"];
+  
+  for (var i = 0; i < bloodCompositions.length; i++) {
+    var bloodComposition = bloodCompositions[i];
+    var result = checkInfection(virusComposition, bloodComposition);
+    console.log("Blood Composition:", bloodComposition, "- Result:", result);
+  }
+        </script>
+    </body>
+</html>
